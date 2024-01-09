@@ -160,17 +160,17 @@ function Dashboard3() {
             <div className="card-body mt-4" style={{ backgroundColor: '#EBE6DF' }}>
                 <div className="row justify-content-center">
                     <div className="inner">
-                        <h5 style={{ fontSize: '100px', textAlign: 'center' }}>  สถานการณ์ฝุ่นละออง </h5>
-                        <h5 style={{ fontSize: '50px', textAlign: 'center' }}><ion-icon name="location"></ion-icon>  จุดตรวจวัดอาคารผู้ป่วยนอกโรงพยาบาลแม่สอด </h5>
-                        <h5 style={{ fontSize: '50px', textAlign: 'center' }}> วันที่ {currentDateTime.toLocaleDateString()} เวลา {currentDateTime.toLocaleTimeString()} </h5>
+                        <h5 style={{ fontSize: '130px', textAlign: 'center' }}>  สถานการณ์ฝุ่นละออง </h5>
+                        <h5 style={{ fontSize: '70px', textAlign: 'center' }}><ion-icon name="location"></ion-icon>  จุดตรวจวัดอาคารผู้ป่วยนอกโรงพยาบาลแม่สอด </h5>
+                        <h5 style={{ fontSize: '70px', textAlign: 'center' }}> วันที่ {currentDateTime.toLocaleDateString()} เวลา {currentDateTime.toLocaleTimeString()} </h5>
 
 
                     </div>
                 </div>
-                <div className="row justify-content-center">
+                <div className="row">
                     <div className="col-lg-6 ">
                         <div className="card-header">
-                            <div className="App" style={{ width: '40%', height: '40%', margin: 'auto' }}>
+                            <div className="App" style={{ width: '70%', height: '70%', margin: 'auto' }}>
                                 <div style={{ position: 'relative' }}>
                                     <CircularProgressbar
                                         value={2 * sensorData.V3}
@@ -209,29 +209,28 @@ function Dashboard3() {
                                         }}
                                     />
                                 </div>
-                                <h1 style={{ fontSize: '120px', textAlign: 'center' }}>
-                                    {Math.floor(calculatedValue)}
-                                </h1>
 
-                                <h1 style={{ fontSize: '40px', textAlign: 'center' }}>
-                                    AQI
-                                </h1>
-                                <div style={{ width: 'fit-content', margin: 'auto' }}>
-                                    <div className={`small-box ${bgColor}`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                        <div className="inner">
-                                            <h5 style={{ fontSize: '40px', color: textColor, textAlign: 'center' }}>{message}</h5>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="col-lg-6 ">
+                    <h1 style={{ fontSize: '200px', textAlign: 'center' }}>
+                        {Math.floor(calculatedValue)}
+                    </h1>
+
+                    <h1 style={{ fontSize: '80px', textAlign: 'center' }}>
+                        AQI
+                    </h1>
+                    <div style={{ width: 'fit-content', margin: 'auto' }}>
+                        <div className={`small-box ${bgColor}`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                            <div className="inner">
+                                <h5 style={{ fontSize: '70px', color: textColor, textAlign: 'center' }}>{message}</h5>
+                            </div>
+                        </div>
                     </div>
-
-
-
+                    </div>
                 </div>
+
             </div>
             <footer className="main-footer">
                 <strong>Copyright &copy; <a>MAESOT HOSPITAL</a>.</strong>
