@@ -224,8 +224,8 @@ function Dashboard3() {
                         <div style={{ width: 'fit-content', margin: 'auto' }}>
                             <div className={`small-box ${bgColor}`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                 <div className="inner">
-                                    <h5 style={{ fontSize: '100px', color: textColor, textAlign: 'center' }}>คุณภาพอากาศ </h5>
-                                    <h5 style={{ fontSize: '100px', color: textColor, textAlign: 'center' }}>{message}</h5>
+                                    <h5 style={{ fontSize: '80px', color: textColor, textAlign: 'center' }}>คุณภาพอากาศ </h5>
+                                    <h5 style={{ fontSize: '80px', color: textColor, textAlign: 'center' }}>{message}</h5>
                                 </div>
                             </div>
                         </div>
