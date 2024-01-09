@@ -90,11 +90,11 @@ function Dashboard3() {
     if (aqiValue >= 0 && aqiValue <= 25) {
         message = "คุณภาพอากาศ ดีมาก";
         bgColor = "bg-info";
-        textColor = "white";
+        textColor = "black";
     } else if (aqiValue >= 26 && aqiValue <= 50) {
         message = "คุณภาพอากาศ ดี";
         bgColor = "bg-success";
-        textColor = "white";
+        textColor = "black";
     } else if (aqiValue >= 51 && aqiValue <= 100) {
         message = "คุณภาพอากาศ ปานกลาง";
         bgColor = "bg-warning";
@@ -102,11 +102,11 @@ function Dashboard3() {
     } else if (aqiValue >= 101 && aqiValue <= 200) {
         message = "คุณภาพอากาศ เริ่มมีผลกระทบต่อสุขภาพ";
         bgColor = "bg-orange";
-        textColor = "white";
+        textColor = "black";
     } else {
         message = "คุณภาพอากาศ มีผลกระทบต่อสุขภาพ";
         bgColor = "bg-danger";
-        textColor = "white";
+        textColor = "black";
     }
     const calculateStrokeColor = () => {
         let progressMultiplier;
