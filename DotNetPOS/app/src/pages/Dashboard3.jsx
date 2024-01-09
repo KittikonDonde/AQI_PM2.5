@@ -83,7 +83,7 @@ function Dashboard3() {
         aqiMultiplier = 2.6; // Default value if none of the conditions match
     }
 
-    const aqiValue = 190;
+    const aqiValue = aqiMultiplier * sensorData.V3;
 
     let message, bgColor, textColor;
 
