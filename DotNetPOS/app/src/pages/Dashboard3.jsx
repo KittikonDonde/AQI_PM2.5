@@ -83,28 +83,28 @@ function Dashboard3() {
         aqiMultiplier = 2.6; // Default value if none of the conditions match
     }
 
-    const aqiValue = aqiMultiplier * sensorData.V3;
+    const aqiValue = 190;
 
     let message, bgColor, textColor;
 
     if (aqiValue >= 0 && aqiValue <= 25) {
-        message = "คุณภาพอากาศ ดีมาก";
+        message = "ดีมาก";
         bgColor = "bg-info";
-        textColor = "black";
+        textColor = "white";
     } else if (aqiValue >= 26 && aqiValue <= 50) {
-        message = "คุณภาพอากาศ ดี";
+        message = "ดี";
         bgColor = "bg-success";
         textColor = "black";
     } else if (aqiValue >= 51 && aqiValue <= 100) {
-        message = "คุณภาพอากาศ ปานกลาง";
+        message = "ปานกลาง";
         bgColor = "bg-warning";
         textColor = "black";
     } else if (aqiValue >= 101 && aqiValue <= 200) {
-        message = "คุณภาพอากาศ เริ่มมีผลกระทบต่อสุขภาพ";
+        message = "เริ่มมีผลกระทบต่อสุขภาพ";
         bgColor = "bg-orange";
         textColor = "black";
     } else {
-        message = "คุณภาพอากาศ มีผลกระทบต่อสุขภาพ";
+        message = "มีผลกระทบต่อสุขภาพ";
         bgColor = "bg-danger";
         textColor = "black";
     }
@@ -204,8 +204,8 @@ function Dashboard3() {
                                             top: '50%',
                                             left: '50%',
                                             transform: 'translate(-50%, -50%)',
-                                            width: '200px', // ปรับขนาดโลโก้ตามที่ต้องการ
-                                            height: '200px', // ปรับขนาดโลโก้ตามที่ต้องการ
+                                            width: '480px', // ปรับขนาดโลโก้ตามที่ต้องการ
+                                            height: '480px', // ปรับขนาดโลโก้ตามที่ต้องการ
                                         }}
                                     />
                                 </div>
@@ -214,20 +214,21 @@ function Dashboard3() {
                         </div>
                     </div>
                     <div className="col-lg-6 ">
-                    <h1 style={{ fontSize: '200px', textAlign: 'center' }}>
-                        {Math.floor(calculatedValue)}
-                    </h1>
+                        <h1 style={{ fontSize: '200px', textAlign: 'center' }}>
+                            {Math.floor(calculatedValue)}
+                        </h1>
 
-                    <h1 style={{ fontSize: '80px', textAlign: 'center' }}>
-                        AQI
-                    </h1>
-                    <div style={{ width: 'fit-content', margin: 'auto' }}>
-                        <div className={`small-box ${bgColor}`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <div className="inner">
-                                <h5 style={{ fontSize: '70px', color: textColor, textAlign: 'center' }}>{message}</h5>
+                        <h1 style={{ fontSize: '80px', textAlign: 'center' }}>
+                            AQI
+                        </h1>
+                        <div style={{ width: 'fit-content', margin: 'auto' }}>
+                            <div className={`small-box ${bgColor}`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <div className="inner">
+                                    <h5 style={{ fontSize: '100px', color: textColor, textAlign: 'center' }}>คุณภาพอากาศ </h5>
+                                    <h5 style={{ fontSize: '100px', color: textColor, textAlign: 'center' }}>{message}</h5>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </div>
 
