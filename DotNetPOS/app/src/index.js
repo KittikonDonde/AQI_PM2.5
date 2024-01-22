@@ -14,7 +14,10 @@ import Dashboard3 from './pages/Dashboard3';
 const router = createBrowserRouter([{
   path: '/',
   element: <Dashboard3 />
-}, 
+}, {
+  path: '/dashboard2',
+  element: <Dashboard2 />
+}
 
 ])
 
