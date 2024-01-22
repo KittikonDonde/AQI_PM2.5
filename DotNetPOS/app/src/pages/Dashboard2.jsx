@@ -40,8 +40,6 @@ function Dashboard2() {
         return () => clearInterval(intervalId);
     }, []);
 
-
-
     let imageSt;
 
     if (sensorData.pm25_th_aqi >= 0 && sensorData.pm25_th_aqi <= 50) {
