@@ -12,6 +12,11 @@ function Dashboard3() {
         V2: 0,
         V3: 0,
     });
+    const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const optionsTime = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
+
+    const formattedDate = currentDateTime.toLocaleDateString('th-TH', optionsDate);
+    const formattedTime = currentDateTime.toLocaleTimeString('th-TH', optionsTime);
 
 
     useEffect(() => {
@@ -157,90 +162,65 @@ function Dashboard3() {
     const calculatedValue = multiplier * sensorValue;
     return (
         <>
-            <div className="card-body mt-4" style={{ backgroundColor: '#EBE6DF' }}>
-                <div className="row justify-content-center">
-                    <div className="inner">
-                        <h5 style={{ fontSize: '130px', textAlign: 'center' }}>  สถานการณ์ฝุ่นละออง </h5>
-                        <h5 style={{ fontSize: '70px', textAlign: 'center' }}><ion-icon name="location"></ion-icon>  จุดตรวจวัดอาคารผู้ป่วยนอกโรงพยาบาลแม่สอด </h5>
-                        <h5 style={{ fontSize: '70px', textAlign: 'center' }}> วันที่ {currentDateTime.toLocaleDateString()} เวลา {currentDateTime.toLocaleTimeString()} </h5>
-
-
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-lg-6 ">
-                        <div className="card-header">
-                            <div className="App" style={{ width: '70%', height: '70%', margin: 'auto' }}>
-                                <div style={{ position: 'relative' }}>
-                                    <CircularProgressbar
-                                        value={2 * sensorData.V3}
-                                        maxValue={200}
-                                        strokeWidth={13}
-                                        styles={{
-                                            root: { width: '100%', height: '100%' },
-                                            path: {
-                                                stroke: calculateStrokeColor(), // เรียกใช้ฟังก์ชันเพื่อคำนวณสี
-                                                strokeLinecap: 'butt',
-                                                transition: 'stroke-dashoffset 0.5s ease 0s',
-                                            },
-                                            trail: {
-                                                stroke: '#d3d3d3',
-                                                strokeLinecap: 'square',
-                                            },
-                                            text: {
-                                                fill: '#000',
-                                                fontSize: '20px',
-                                                dominantBaseline: 'middle',
-                                                textAnchor: 'middle',
-                                            },
-                                        }}
-                                    />
-
-                                    <img
-                                        src={imageSt}
-                                        alt="Logo"
-                                        style={{
-                                            position: 'absolute',
-                                            top: '50%',
-                                            left: '50%',
-                                            transform: 'translate(-50%, -50%)',
-                                            width: '480px', // ปรับขนาดโลโก้ตามที่ต้องการ
-                                            height: '480px', // ปรับขนาดโลโก้ตามที่ต้องการ
-                                        }}
-                                    />
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-6 ">
-                        <h1 style={{ fontSize: '200px', textAlign: 'center' }}>
-                            {Math.floor(calculatedValue)}
-                        </h1>
-
-                        <h1 style={{ fontSize: '80px', textAlign: 'center' }}>
-                            AQI
-                        </h1>
-                        <div style={{ width: 'fit-content', margin: 'auto' }}>
-                            <div className={`small-box ${bgColor}`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                <div className="inner">
-                                    <h5 style={{ fontSize: '80px', color: textColor, textAlign: 'center' }}>คุณภาพอากาศ </h5>
-                                    <h5 style={{ fontSize: '80px', color: textColor, textAlign: 'center' }}>{message}</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+        <div className="card-body mt-4" style={{ backgroundColor: '#EBE6DF' }}>
+            <div className="inner">
+                <h5 style={{ fontSize: '130px', textAlign: 'center' }}>  สถานการณ์ฝุ่นละอองขนาดเล็ก </h5>
+                <h5 style={{ fontSize: '65px', textAlign: 'center' }}><ion-icon name="location"></ion-icon>  จุดตรวจวัดอาคารผู้ป่วยนอกโรงพยาบาลแม่สอด </h5>
+                <h5 style={{ fontSize: '65px', textAlign: 'center' }}> {formattedDate.toLocaleString()} เวลา {formattedTime}  </h5>
             </div>
-            <footer className="main-footer">
-                <strong>Copyright &copy; <a>MAESOT HOSPITAL</a>.</strong>
-                All rights reserved. Developed By.KITTIKON
-                <div className="float-right d-none d-sm-inline-block">
-                    <b>Version</b> 1.0.0
+            <div class="row content-center" >
+                <div className="col-lg-4 col-5 mx-auto">
+                    <div className={`small-box rounded ${aqiValue >= 0 && aqiValue <= 25 ? 'bg-info' :
+                        (aqiValue >= 26 && aqiValue <= 50 ? 'bg-success' :
+                            (calculatedValue >= 51 && calculatedValue <= 100 ? 'bg-warning' :
+                                (calculatedValue >= 101 && calculatedValue <= 200 ? 'bg-orange' : 'bg-danger')))}`}>
+                        <div className="inner">
+                            <h5 style={{ fontSize: '40px', textAlign: 'center', color: 'black' }}>AQI</h5>
+                            <h1 style={{ textAlign: 'center', fontSize: '150px', color: 'black' }}>
+                                {Math.floor(calculatedValue)}
+                            </h1>
+                        </div>
+                    </div>
                 </div>
-            </footer>
-        </>
+
+                <div className="col-lg-4 col-5 mx-auto">
+                    <div className={`small-box ${sensorData.V3 >= 0 && sensorData.V3 <= 15 ? 'bg-info' :
+                        (sensorData.V3 >= 16 && sensorData.V3 <= 25 ? 'bg-success' :
+                            (sensorData.V3 >= 26 && sensorData.V3 <= 37 ? 'bg-warning' :
+                                (sensorData.V3 >= 38 && sensorData.V3 <= 75 ? 'bg-orange' : 'bg-danger')))}`}>
+                        <div className="inner">
+                            <h5 style={{ fontSize: '40px', textAlign: 'center', color: 'black' }}>PM 2.5</h5>
+
+                            <h1 style={{ textAlign: 'center', fontSize: '150px', color: 'black' }}>
+                                {sensorData.V3}
+                                <sup style={{ fontSize: '30px' }}>
+                                    μg/m<sup style={{ fontSize: '20px' }}>3</sup>
+                                </sup>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center" >
+                <div className="col-lg-4 col-5 mt-auto">
+                    <img src={imageSt} style={{ width: '60%', height: 'auto', display: 'block', margin: '0 auto' }} alt="Image" />
+                </div>
+                <div className="col-lg-5 col-5" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <div className="inner">
+                        <h5 style={{ fontSize: '70px', color: 'black', textAlign: 'center' }}>คุณภาพอากาศ</h5>
+                        <h5 style={{ fontSize: '70px', color: 'black', textAlign: 'center' }}>{message}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer className="main-footer">
+            <strong>Copyright &copy; <a>MAESOT HOSPITAL</a>.</strong>
+            All rights reserved. Developed By.KITTIKON
+            <div className="float-right d-none d-sm-inline-block">
+                <b>Version</b> 1.0.0
+            </div>
+        </footer>
+    </>
     );
 }
 
