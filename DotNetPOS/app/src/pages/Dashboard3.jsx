@@ -59,21 +59,7 @@ function Dashboard3() {
     } else {
         imageUrl = 'dist/img/5.png';
     }
-
-    let imageSt;
-
-    if (1.65 * sensorData.V3 >= 0 && 1.65 * sensorData.V3 <= 25) {
-        imageSt = 'dist/img/s1.png';
-    } else if (1.95 * sensorData.V3 >= 26 && 1.95 * sensorData.V3 <= 50) {
-        imageSt = 'dist/img/s2.png';
-    } else if (2.45 * sensorData.V3 >= 51 && 2.45 * sensorData.V3 <= 100) {
-        imageSt = 'dist/img/s3.png';
-    } else if (2.6 * sensorData.V3 >= 101) {
-        imageSt = 'dist/img/s4.png';
-    } else {
-        imageSt = 'dist/img/s5.png';
-    }
-
+   
     let aqiMultiplier;
 
     if (sensorData.V3 >= 0 && sensorData.V3 <= 15) {
@@ -113,6 +99,21 @@ function Dashboard3() {
         bgColor = "bg-danger";
         textColor = "black";
     }
+    const aqiValue1 = aqiMultiplier * sensorData.V3
+    let imageSt;
+
+    if (aqiValue1 >= 0 && aqiValue1 <= 25) {
+        imageSt = 'dist/img/s1.png';
+    } else if (aqiValue1 >= 26 && aqiValue1 <= 50) {
+        imageSt = 'dist/img/s2.png';
+    } else if (aqiValue1 >= 51 && aqiValue1 <= 100) {
+        imageSt = 'dist/img/s3.png';
+    } else if (aqiValue1 >= 101) {
+        imageSt = 'dist/img/s4.png';
+    } else {
+        imageSt = 'dist/img/s5.png';
+    }
+
     const calculateStrokeColor = () => {
         let progressMultiplier;
 
