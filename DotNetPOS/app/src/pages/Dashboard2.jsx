@@ -122,31 +122,28 @@ function Dashboard2() {
                     </div>
                 </div>
                 */}
-                <div className="col-lg-4 col-5 mx-auto">
-                        <div className={`small-box ${sensorData.pm25 >= 0 && sensorData.pm25 <= 15 ? 'bg-info' :
-                            (sensorData.pm25 >= 16 && sensorData.pm25 <= 25 ? 'bg-success' :
-                                (sensorData.pm25 >= 26 && sensorData.pm25 <= 37 ? 'bg-warning' :
-                                    (sensorData.pm25 >= 38 && sensorData.pm25 <= 75 ? 'bg-orange' : 'bg-danger')))}`}>
-                            <div className="inner">
-                                <h5 style={{ fontSize: '40px', textAlign: 'center', color: 'black' }}>PM 2.5</h5>
-
-                                <h1 style={{ textAlign: 'center', fontSize: '150px', color: 'black' }}>
-                                    {sensorData.pm25}
-                                    <sup style={{ fontSize: '30px' }}>
-                                        μg/m<sup style={{ fontSize: '20px' }}>3</sup>
-                                    </sup>
-                                </h1>
-                            </div>
+                <div className="col-lg-7 col-5 mx-auto align-self-center">
+                    <div className={`small-box ${sensorData.pm25 >= 0 && sensorData.pm25 <= 15 ? 'bg-info' :
+                        (sensorData.pm25 >= 16 && sensorData.pm25 <= 25 ? 'bg-success' :
+                            (sensorData.pm25 >= 26 && sensorData.pm25 <= 37 ? 'bg-warning' :
+                                (sensorData.pm25 >= 38 && sensorData.pm25 <= 75 ? 'bg-orange' : 'bg-danger')))}`} style={{ borderRadius: '50px', border: 'none' }}>
+                        <div className="inner">
+                            <h1 style={{ textAlign: 'center', fontSize: '100px', color: 'black' }}>PM 2.5 : <span style={{ fontSize: '150px' }}>{sensorData.pm25}</span>
+                                <sup style={{ fontSize: '50px' }}>
+                                    μg/m<sup style={{ fontSize: '40px' }}>3</sup>
+                                </sup>
+                            </h1>
                         </div>
                     </div>
+                </div>
                 <div class="row justify-content-center" >
                     <div className="col-lg-4 col-5 mt-auto">
                         <img src={imageSt} style={{ width: '60%', height: 'auto', display: 'block', margin: '0 auto' }} alt="Image" />
                     </div>
                     <div className="col-lg-5 col-5" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <div className="inner">
-                            <h5 style={{ fontSize: '70px', color: 'black', textAlign: 'center' }}>คุณภาพอากาศ</h5>
-                            <h5 style={{ fontSize: '70px', color: 'black', textAlign: 'center' }}>{message}</h5>
+                            <h5 style={{ fontSize: '85px', color: 'black', textAlign: 'center' }}>คุณภาพอากาศ</h5>
+                            <h5 style={{ fontSize: '85px', color: 'black', textAlign: 'center' }}>{message}</h5>
                         </div>
                     </div>
                     <div className="col-lg-2 col-5 mt-auto">
