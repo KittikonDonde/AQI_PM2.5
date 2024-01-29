@@ -42,13 +42,13 @@ function Dashboard2() {
 
     let imageSt;
 
-    if (sensorData.pm25_th_aqi >= 0 && sensorData.pm25_th_aqi <= 50) {
+    if (sensorData.pm25_th_aqi >= 0 && sensorData.pm25_th_aqi <= 15) {
         imageSt = 'dist/img/s1.png';
-    } else if (sensorData.pm25_th_aqi >= 51 && sensorData.pm25_th_aqi <= 80) {
+    } else if (sensorData.pm25_th_aqi >= 16 && sensorData.pm25_th_aqi <= 25) {
         imageSt = 'dist/img/s2.png';
-    } else if (sensorData.pm25_th_aqi >= 81 && sensorData.pm25_th_aqi <= 120) {
+    } else if (sensorData.pm25_th_aqi >= 26 && sensorData.pm25_th_aqi <= 37) {
         imageSt = 'dist/img/s3.png';
-    } else if (sensorData.pm25_th_aqi >= 121 && sensorData.pm25_th_aqi <= 180) {
+    } else if (sensorData.pm25_th_aqi >= 38 && sensorData.pm25_th_aqi <= 75) {
         imageSt = 'dist/img/s4.png';
     } else {
         imageSt = 'dist/img/s5.png';
@@ -58,19 +58,19 @@ function Dashboard2() {
 
     let message, bgColor, textColor;
 
-    if (aqiValue >= 0 && aqiValue <= 50) {
+    if (aqiValue >= 0 && aqiValue <= 15) {
         message = "ดีมาก";
         bgColor = "bg-info";
         textColor = "white";
-    } else if (aqiValue >= 51 && aqiValue <= 80) {
+    } else if (aqiValue >= 16 && aqiValue <= 25) {
         message = "ดี";
         bgColor = "bg-success";
         textColor = "white";
-    } else if (aqiValue >= 81 && aqiValue <= 120) {
+    } else if (aqiValue >= 26 && aqiValue <= 37) {
         message = "ปานกลาง";
         bgColor = "bg-warning";
         textColor = "black";
-    } else if (aqiValue >= 121 && aqiValue <= 180) {
+    } else if (aqiValue >= 38 && aqiValue <= 75) {
         message = "เริ่มมีผลกระทบต่อสุขภาพ";
         bgColor = "bg-orange";
         textColor = "white";
@@ -87,6 +87,7 @@ function Dashboard2() {
                     <h5 style={{ fontSize: '65px', textAlign: 'center' }}><ion-icon name="location"></ion-icon>  จุดตรวจวัด (อาคารผู้ป่วยนอก) โรงพยาบาลแม่สอด </h5>
                     <h5 style={{ fontSize: '65px', textAlign: 'center' }}> {formattedDate.toLocaleString()} เวลา {formattedTime}  </h5>
                 </div>
+                {/*
                 <div class="row content-center" >
                     <div className="col-lg-4 col-5 mx-auto">
                         <div className={`small-box rounded ${sensorData.pm25_th_aqi >= 0 && sensorData.pm25_th_aqi <= 50 ? 'bg-info' :
@@ -120,6 +121,24 @@ function Dashboard2() {
                         </div>
                     </div>
                 </div>
+                */}
+                <div className="col-lg-4 col-5 mx-auto">
+                        <div className={`small-box ${sensorData.pm25 >= 0 && sensorData.pm25 <= 15 ? 'bg-info' :
+                            (sensorData.pm25 >= 16 && sensorData.pm25 <= 25 ? 'bg-success' :
+                                (sensorData.pm25 >= 26 && sensorData.pm25 <= 37 ? 'bg-warning' :
+                                    (sensorData.pm25 >= 38 && sensorData.pm25 <= 75 ? 'bg-orange' : 'bg-danger')))}`}>
+                            <div className="inner">
+                                <h5 style={{ fontSize: '40px', textAlign: 'center', color: 'black' }}>PM 2.5</h5>
+
+                                <h1 style={{ textAlign: 'center', fontSize: '150px', color: 'black' }}>
+                                    {sensorData.pm25}
+                                    <sup style={{ fontSize: '30px' }}>
+                                        μg/m<sup style={{ fontSize: '20px' }}>3</sup>
+                                    </sup>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
                 <div class="row justify-content-center" >
                     <div className="col-lg-4 col-5 mt-auto">
                         <img src={imageSt} style={{ width: '60%', height: 'auto', display: 'block', margin: '0 auto' }} alt="Image" />
