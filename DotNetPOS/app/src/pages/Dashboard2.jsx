@@ -42,19 +42,19 @@ function Dashboard2() {
 
     let imageSt;
 
-    if (sensorData.pm25_th_aqi >= 0 && sensorData.pm25_th_aqi <= 15) {
+    if (sensorData.pm25 >= 0 && sensorData.pm25 <= 15) {
         imageSt = 'dist/img/s1.png';
-    } else if (sensorData.pm25_th_aqi >= 16 && sensorData.pm25_th_aqi <= 25) {
+    } else if (sensorData.pm25 >= 16 && sensorData.pm25 <= 25) {
         imageSt = 'dist/img/s2.png';
-    } else if (sensorData.pm25_th_aqi >= 26 && sensorData.pm25_th_aqi <= 37) {
+    } else if (sensorData.pm25 >= 26 && sensorData.pm25 <= 37) {
         imageSt = 'dist/img/s3.png';
-    } else if (sensorData.pm25_th_aqi >= 38 && sensorData.pm25_th_aqi <= 75) {
+    } else if (sensorData.pm25 >= 38 && sensorData.pm25 <= 75) {
         imageSt = 'dist/img/s4.png';
     } else {
         imageSt = 'dist/img/s5.png';
     }
 
-    const aqiValue = sensorData.pm25_th_aqi;
+    const aqiValue = sensorData.pm25;
 
     let message, bgColor, textColor;
 
@@ -142,8 +142,8 @@ function Dashboard2() {
                     </div>
                     <div className="col-lg-5 col-5" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <div className="inner">
-                            <h5 style={{ fontSize: '85px', color: 'black', textAlign: 'center' }}>คุณภาพอากาศ</h5>
-                            <h5 style={{ fontSize: '85px', color: 'black', textAlign: 'center' }}>{message}</h5>
+                            <h5 style={{ fontSize: '70px', color: 'black', textAlign: 'center' }}>คุณภาพอากาศ</h5>
+                            <h5 style={{ fontSize: '70px', color: 'black', textAlign: 'center' }}>{message}</h5>
                         </div>
                     </div>
                     <div className="col-lg-2 col-5 mt-auto">
