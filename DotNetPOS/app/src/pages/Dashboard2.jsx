@@ -148,7 +148,7 @@ function Dashboard2() {
                         </div>
                     </div>
                     <div className="col-lg-2 col-5 mt-auto">
-                        <img src='./dist/img/1.png' style={{ width: '40%', height: 'auto', display: 'block', margin: '0 auto' }} alt="Image" />
+                        <img src='./dist/img/a.png' style={{ width: '100%', height: 'auto', display: 'block', margin: '0 auto' }} alt="Image" />
                         <h5 style={{ fontSize: '25px', color: 'black', textAlign: 'center' }}>แหล่งอ้างอิงข้อมูล</h5>
                     </div>
                 </div>
