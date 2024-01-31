@@ -13,15 +13,16 @@ function Dashboard2() {
 
 
     const [sensorData, setSensorData] = useState({
-        pm25: 0,
-        pm25_th_aqi: 0,
+        AQILast: {
+          PM25: { value: 0 }
+        }
     });
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                    'https://www.cmuccdc.org/api/ccdc/value/5046'
+                    'http://air4thai.pcd.go.th/forappV2/getAQI_JSON.php?stationID=76t'
                 );
                 const apiData = response.data;
                 setSensorData(apiData);
@@ -42,19 +43,19 @@ function Dashboard2() {
 
     let imageSt;
 
-    if (sensorData.pm25 >= 0 && sensorData.pm25 <= 15) {
+    if (sensorData.AQILast.PM25.value >= 0 && sensorData.AQILast.PM25.value <= 15) {
         imageSt = 'dist/img/s1.png';
-    } else if (sensorData.pm25 >= 16 && sensorData.pm25 <= 25) {
+    } else if (sensorData.AQILast.PM25.value >= 16 && sensorData.AQILast.PM25.value <= 25) {
         imageSt = 'dist/img/s2.png';
-    } else if (sensorData.pm25 >= 26 && sensorData.pm25 <= 37) {
+    } else if (sensorData.AQILast.PM25.value >= 26 && sensorData.AQILast.PM25.value <= 37) {
         imageSt = 'dist/img/s3.png';
-    } else if (sensorData.pm25 >= 38 && sensorData.pm25 <= 75) {
+    } else if (sensorData.AQILast.PM25.value >= 38 && sensorData.AQILast.PM25.value <= 75) {
         imageSt = 'dist/img/s4.png';
     } else {
         imageSt = 'dist/img/s5.png';
     }
 
-    const aqiValue = sensorData.pm25;
+    const aqiValue = sensorData.AQILast.PM25.value;
 
     let message, bgColor, textColor;
 
@@ -123,12 +124,12 @@ function Dashboard2() {
                 </div>
                 */}
                 <div className="col-lg-7 col-5 mx-auto align-self-center">
-                    <div className={`small-box ${sensorData.pm25 >= 0 && sensorData.pm25 <= 15 ? 'bg-info' :
-                        (sensorData.pm25 >= 16 && sensorData.pm25 <= 25 ? 'bg-success' :
-                            (sensorData.pm25 >= 26 && sensorData.pm25 <= 37 ? 'bg-warning' :
-                                (sensorData.pm25 >= 38 && sensorData.pm25 <= 75 ? 'bg-orange' : 'bg-danger')))}`} style={{ borderRadius: '50px', border: 'none' }}>
+                    <div className={`small-box ${aqiValue >= 0 && aqiValue <= 15 ? 'bg-info' :
+                        (aqiValue >= 16 && aqiValue <= 25 ? 'bg-success' :
+                            (aqiValue >= 26 && aqiValue <= 37 ? 'bg-warning' :
+                                (aqiValue >= 38 && aqiValue <= 75 ? 'bg-orange' : 'bg-danger')))}`} style={{ borderRadius: '50px', border: 'none' }}>
                         <div className="inner">
-                            <h1 style={{ textAlign: 'center', fontSize: '100px', color: 'black' }}>PM 2.5 : <span style={{ fontSize: '150px' }}>{sensorData.pm25}</span>
+                            <h1 style={{ textAlign: 'center', fontSize: '100px', color: 'black' }}>PM 2.5 : <span style={{ fontSize: '150px' }}>{aqiValue}</span>
                                 <sup style={{ fontSize: '50px' }}>
                                     μg/m<sup style={{ fontSize: '40px' }}>3</sup>
                                 </sup>
