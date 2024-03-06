@@ -85,7 +85,7 @@ function Dashboard2() {
             <div className="card-body mt-4" style={{ backgroundColor: '#EBE6DF' }}>
                 <div className="inner">
                     <h5 style={{ fontSize: '130px', textAlign: 'center' }}>  สถานการณ์ฝุ่นละอองขนาดเล็ก </h5>
-                    <h5 style={{ fontSize: '65px', textAlign: 'center' }}><ion-icon name="location"></ion-icon>  จุดตรวจวัด (อาคารผู้ป่วยนอก) โรงพยาบาลแม่สอด </h5>
+                    <h5 style={{ fontSize: '65px', textAlign: 'center' }}><ion-icon name="location"></ion-icon>   ศูนย์การศึกษานอกโรงเรียน ต.แม่ปะ อ.แม่สอด จ.ตาก </h5>
                     <h5 style={{ fontSize: '65px', textAlign: 'center' }}> {formattedDate.toLocaleString()} เวลา {formattedTime}  </h5>
                 </div>
                 {/*
