@@ -43,11 +43,11 @@ function Dashboard2() {
 
     let imageSt;
 
-    if (sensorData.AQILast.PM25.value >= 0 && sensorData.AQILast.PM25.value <= 15) {
+    if (sensorData.AQILast.PM25.value >= 0 && sensorData.AQILast.PM25.value <= 15.99) {
         imageSt = 'dist/img/s1.png';
-    } else if (sensorData.AQILast.PM25.value >= 16 && sensorData.AQILast.PM25.value <= 25) {
+    } else if (sensorData.AQILast.PM25.value >= 16 && sensorData.AQILast.PM25.value <= 25.99) {
         imageSt = 'dist/img/s2.png';
-    } else if (sensorData.AQILast.PM25.value >= 26 && sensorData.AQILast.PM25.value <= 37) {
+    } else if (sensorData.AQILast.PM25.value >= 26 && sensorData.AQILast.PM25.value <= 37.99) {
         imageSt = 'dist/img/s3.png';
     } else if (sensorData.AQILast.PM25.value >= 38 && sensorData.AQILast.PM25.value <= 75) {
         imageSt = 'dist/img/s4.png';
@@ -59,15 +59,15 @@ function Dashboard2() {
 
     let message, bgColor, textColor;
 
-    if (aqiValue >= 0 && aqiValue <= 15) {
+    if (aqiValue >= 0 && aqiValue <= 15.99) {
         message = "ดีมาก";
         bgColor = "bg-info";
         textColor = "white";
-    } else if (aqiValue >= 16 && aqiValue <= 25) {
+    } else if (aqiValue >= 16 && aqiValue <= 25.99) {
         message = "ดี";
         bgColor = "bg-success";
         textColor = "white";
-    } else if (aqiValue >= 26 && aqiValue <= 37) {
+    } else if (aqiValue >= 26 && aqiValue <= 37.99) {
         message = "ปานกลาง";
         bgColor = "bg-warning";
         textColor = "black";
@@ -124,9 +124,9 @@ function Dashboard2() {
                 </div>
                 */}
                 <div className="col-lg-7 col-5 mx-auto align-self-center">
-                    <div className={`small-box ${aqiValue >= 0 && aqiValue <= 15 ? 'bg-info' :
-                        (aqiValue >= 16 && aqiValue <= 25 ? 'bg-success' :
-                            (aqiValue >= 26 && aqiValue <= 37 ? 'bg-warning' :
+                    <div className={`small-box ${aqiValue >= 0 && aqiValue <= 15.99 ? 'bg-info' :
+                        (aqiValue >= 16 && aqiValue <= 25.99 ? 'bg-success' :
+                            (aqiValue >= 26 && aqiValue <= 37.99 ? 'bg-warning' :
                                 (aqiValue >= 38 && aqiValue <= 75 ? 'bg-orange' : 'bg-danger')))}`} style={{ borderRadius: '50px', border: 'none' }}>
                         <div className="inner">
                             <h1 style={{ textAlign: 'center', fontSize: '100px', color: 'black' }}>PM 2.5 : <span style={{ fontSize: '150px' }}>{aqiValue}</span>
